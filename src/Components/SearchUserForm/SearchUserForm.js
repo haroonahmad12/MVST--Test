@@ -1,17 +1,12 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { getUser } from "../../api/getUser";
-import { fetchSuccess } from "../../redux/user-reducer/actions";
+import { fetchSuccess, setScreenType } from "../../redux/user-reducer/actions";
+import { USER } from "../../redux/user-reducer/types";
 
 const SearchUserForm = () => {
   const [user, setUser] = useState("");
   const dispatch = useDispatch();
-
-  const fetchUser = async () => {
-    const fetchedUser = await getUser(user);
-
-    return fetchedUser;
-  };
 
   const createPayload = (data) => {
     return {
@@ -27,9 +22,17 @@ const SearchUserForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetchUser()
-      .then((res) => createPayload(res.data))
-      .then((payload) => dispatch(fetchSuccess(payload)));
+    try {
+      getUser(user)
+        .then((res) => createPayload(res.data))
+        .then((payload) => {
+          dispatch(fetchSuccess(payload));
+          dispatch(setScreenType(USER));
+        });
+    } catch (error) {
+      console.log("e");
+      dispatch(setScreenType(USER));
+    }
   };
 
   return (

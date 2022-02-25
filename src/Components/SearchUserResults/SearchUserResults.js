@@ -2,16 +2,16 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { userSelector } from "../../redux/user-reducer/selectors";
 import ProfileDetails from "../ProfileDetails";
-import RepoDetail from "../RepoDetail";
+import RepoList from "../RepoList";
 
-const SearchResults = () => {
+const SearchUserResults = () => {
   const { user, resultDataType } = useSelector(userSelector);
 
   return (
     <div className="search__results">
       {user.username ? (
         resultDataType === "repo" ? (
-          <RepoDetail />
+          <RepoList user={user} />
         ) : (
           <ProfileDetails user={user} />
         )
@@ -26,4 +26,4 @@ const SearchResults = () => {
   );
 };
 
-export default SearchResults;
+export default SearchUserResults;

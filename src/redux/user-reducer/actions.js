@@ -17,3 +17,8 @@ export const setScreenType = (type) => ({
   type: UserTypes.SET_DATA_TYPE,
   payload: type,
 });
+
+export const setUserRepos = (repoList) => ({
+  type: UserTypes.SET_USER_REPOS,
+  payload: repoList,
+});

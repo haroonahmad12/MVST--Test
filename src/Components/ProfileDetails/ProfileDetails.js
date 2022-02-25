@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { getUserRepo } from "../../api/getUserRepos";
-import { setScreenType } from "../../redux/user-reducer/actions";
+import { setScreenType, setUserRepos } from "../../redux/user-reducer/actions";
 import { REPO } from "../../redux/user-reducer/types";
 import "./ProfileDetails.scss";
 
@@ -18,7 +18,7 @@ const ProfileDetails = ({ user }) => {
   } = user;
 
   const fetchRepos = () => {
-    getUserRepo(username).then((res) => console.log(res));
+    getUserRepo(username).then((res) => dispatch(setUserRepos(res.data)));
   };
 
   const handleRepoClick = () => {
@@ -41,7 +41,7 @@ const ProfileDetails = ({ user }) => {
             <h2>{name ? name : username}</h2>
             <h4>{username}</h4>
           </div>
-          <hr />
+          <div className="hr__div" />
           <div className="profile__details--info-items">
             <div className="info-item">
               <div className="inf__title">{followers} </div>
@@ -56,14 +56,18 @@ const ProfileDetails = ({ user }) => {
               <div className="inf__text">Repositories</div>
             </div>
           </div>
-          <hr />
+          <div className="hr__div" />
         </div>
       </div>
       <footer className="footer__buttons">
-        <a href={url} target="_blank" rel="noreferrer">
-          <button>Visit Github Profile</button>
-        </a>
-        <button onClick={handleRepoClick}>See Repositories</button>
+        <button className="footer__buttons--button">
+          <a href={url} target="_blank" rel="noreferrer">
+            Visit Github Profile
+          </a>
+        </button>
+        <button onClick={handleRepoClick} className="footer__buttons--button">
+          See Repositories
+        </button>
       </footer>
     </>
   );

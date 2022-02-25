@@ -1,5 +1,9 @@
 import axios from "axios";
 
+export const headers = {
+  Authorization: process.env.REACT_APP_GITHUB_AUTH_TOKEN,
+};
+
 axios.interceptors.response.use(null, (error) => {
   const expectedError =
     error.response &&
