@@ -1,0 +1,57 @@
+.profile__details {
+  width: 100%;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 2rem;
+  &--info {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    text-align: center;
+    @media only screen and (max-width: 1000px) {
+      gap: 1rem;
+    }
+  }
+  &--info-items {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    @media only screen and (max-width: 1000px) {
+      align-items: center;
+      flex-direction: row;
+      gap: 1rem;
+      margin: 0;
+      justify-content: center;
+    }
+  }
+  &--info-heading {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  @media only screen and (max-width: 1000px) {
+    align-items: center;
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+.image__section {
+  max-height: 20rem;
+  max-width: 20rem;
+
+  & img {
+    border-radius: 100%;
+    max-height: 20rem;
+    max-width: 20rem;
+    @media only screen and (max-width: 1000px) {
+      max-height: 10rem;
+      max-width: 10rem;
+    }
+  }
+}
