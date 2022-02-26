@@ -5,6 +5,7 @@ import { showToast } from "../../Components/ErrorToast/ErrorToast";
 import SearchForm from "../../Components/SearchForm";
 import SearchRepoResults from "../../Components/SearchRepoResults";
 import { setSearchRepo, setUserRepos } from "../../redux/user-reducer/actions";
+import ErrorToast from "../../Components/ErrorToast";
 
 // Find a Repo in a list of ALL public Repositories
 
@@ -30,6 +31,7 @@ const FindRepoPage = () => {
     <main className="main__container">
       <SearchForm type="Repository" handleSubmit={handleSubmit} set={setRepo} />
       <SearchRepoResults />
+      <ErrorToast />
     </main>
   );
 };
