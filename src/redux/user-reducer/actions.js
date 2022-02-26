@@ -22,3 +22,13 @@ export const setUserRepos = (repoList) => ({
   type: UserTypes.SET_USER_REPOS,
   payload: repoList,
 });
+
+export const setSearchRepo = (bool) => ({
+  type: UserTypes.SEARCH_USER_REPO,
+  payload: bool,
+});
+
+export const setFilteredRepos = (repoList) => ({
+  type: UserTypes.SET_FILTERED_REPOS,
+  payload: repoList,
+});

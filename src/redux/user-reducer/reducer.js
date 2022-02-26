@@ -5,6 +5,7 @@ export const UserInitialState = {
   fetchError: null,
   fetchSuccess: false,
   resultDataType: "user",
+  searchUserRepo: false,
   user: {
     avatar_url: null,
     followers: null,
@@ -15,6 +16,7 @@ export const UserInitialState = {
     url: null,
   },
   userRepos: [],
+  filteredRepos: null,
 };
 
 const UserReducer = (state = UserInitialState, action) => {
@@ -49,6 +51,20 @@ const UserReducer = (state = UserInitialState, action) => {
       return {
         ...state,
         userRepos: action.payload,
+      };
+    }
+
+    case UserTypes.SET_FILTERED_REPOS: {
+      return {
+        ...state,
+        filteredRepos: action.payload,
+      };
+    }
+    case UserTypes.SEARCH_USER_REPO: {
+      return {
+        ...state,
+        searchUserRepo: action.payload,
+        filteredRepos: action.payload === false && null,
       };
     }
 

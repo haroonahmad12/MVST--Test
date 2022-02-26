@@ -1,37 +1,54 @@
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
-import { getRepoLanguage } from "../../api/getRepoLanguage";
+import { useDispatch, useSelector } from "react-redux";
+import { setScreenType, setSearchRepo } from "../../redux/user-reducer/actions";
 import { userSelector } from "../../redux/user-reducer/selectors";
-import forkIcon from "../../assets/fork.png";
+import RepoDetail from "../RepoDetail";
+import * as TYPES from "../../redux/user-reducer/types";
 
 import "./RepoList.scss";
+import SearchRepoBar from "../SearchRepoBar";
 
 const RepoList = ({ user }) => {
-  const { userRepos } = useSelector(userSelector);
+  const { userRepos, searchUserRepo, filteredRepos } =
+    useSelector(userSelector);
   const [currentPage, setCurrentPage] = useState(1);
   const [paginatedRepoList, setPaginatedList] = useState(null);
+  const dispatch = useDispatch();
 
   const { name, avatar_url } = user;
 
-  useEffect(() => {
-    let page = currentPage,
+  const pagination = (pageNum, array) => {
+    let page = pageNum,
       per_page = 5,
       offset = (page - 1) * per_page,
-      paginatedItems = userRepos.slice(offset).slice(0, per_page),
-      total_pages = Math.ceil(userRepos.length / per_page);
+      paginatedItems = array?.slice(offset).slice(0, per_page),
+      total_pages = Math.ceil(array?.length / per_page);
 
     setPaginatedList({
       page: page,
       per_page: per_page,
       pre_page: page - 1 ? page - 1 : null,
       next_page: total_pages > page ? page + 1 : null,
-      total: userRepos.length,
+      total: array?.length,
       total_pages: total_pages,
       data: paginatedItems,
     });
+  };
+
+  useEffect(() => {
+    pagination(currentPage, userRepos);
   }, [currentPage, userRepos]);
 
-  console.log(paginatedRepoList);
+  useEffect(() => {
+    if (filteredRepos !== null && filteredRepos.length > 0 && searchUserRepo) {
+      pagination(currentPage, filteredRepos);
+    }
+  }, [currentPage, filteredRepos]);
+
+  const handleClick = () => {
+    dispatch(setScreenType(TYPES.USER));
+    dispatch(setSearchRepo(false));
+  };
 
   return (
     <div className="repolist__section">
@@ -42,46 +59,15 @@ const RepoList = ({ user }) => {
           alt="profile"
         />
         <div>
-          <h3>{name}</h3>
+          <h3 onClick={handleClick}>{name}</h3>
         </div>
       </header>
-
       <div>
-        {paginatedRepoList?.data.map((repo) => {
-          const date = new Date(repo.updated_at);
-          return (
-            <div key={repo.id}>
-              <div className="repo__item">
-                <a
-                  href={repo.html_url}
-                  className="repo__link"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <h3>{repo.name}</h3>
-                </a>
-                <span className="repo__label">{repo.visibility}</span>
-              </div>
-              <div className="repo__details">
-                <a className="repo__label" href="#!">
-                  <img
-                    src={forkIcon}
-                    alt="forks"
-                    style={{ width: "18px", height: "18px" }}
-                  />
-                  <span>{repo.forks}</span>
-                </a>
-                <div className="repo__label" style={{ height: "20px" }}>
-                  <span style={{ fontSize: "12px" }}>
-                    Last Update: {date.toDateString()}
-                  </span>
-                </div>
-              </div>
-
-              <div className="hr__div" />
-            </div>
-          );
-        })}
+        {searchUserRepo && <SearchRepoBar />}
+        {/* {paginatedRepoList?.data?.lenght === 0 && } */}
+        {paginatedRepoList?.data?.map((repo) => (
+          <RepoDetail repo={repo} />
+        ))}
         <footer className="footer__buttons">
           <button
             onClick={() => {

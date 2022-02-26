@@ -21,11 +21,11 @@ function App() {
         <div className="background--bottom" />
       </div>
       <Routes>
-        <Route path={ROUTES.USER_SEARCH} element={<UserProfilePage />} />
+        <Route path="/" element={<UserProfilePage />} />
       </Routes>
-      <Routes>
+      {/* <Routes>
         <Route path={ROUTES.MAIN} element={<FindRepoPage />} />
-      </Routes>
+      </Routes> */}
     </Router>
   );
 }

@@ -1,7 +1,11 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { getUserRepo } from "../../api/getUserRepos";
-import { setScreenType, setUserRepos } from "../../redux/user-reducer/actions";
+import {
+  setScreenType,
+  setSearchRepo,
+  setUserRepos,
+} from "../../redux/user-reducer/actions";
 import { REPO } from "../../redux/user-reducer/types";
 import "./ProfileDetails.scss";
 
@@ -25,6 +29,12 @@ const ProfileDetails = ({ user }) => {
     fetchRepos();
 
     dispatch(setScreenType(REPO));
+  };
+  const handleSearchRepo = () => {
+    fetchRepos();
+
+    dispatch(setScreenType(REPO));
+    dispatch(setSearchRepo(true));
   };
   return (
     <>
@@ -67,6 +77,9 @@ const ProfileDetails = ({ user }) => {
         </button>
         <button onClick={handleRepoClick} className="footer__buttons--button">
           See Repositories
+        </button>
+        <button onClick={handleSearchRepo} className="footer__buttons--button">
+          Search User Repos
         </button>
       </footer>
     </>
