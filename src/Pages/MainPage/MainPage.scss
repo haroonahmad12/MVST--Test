@@ -1,0 +1,33 @@
+.main__nav {
+  margin: auto;
+  position: relative;
+  top: 26.5rem;
+  display: flex;
+  border: #504c4c 1px solid;
+  color: #afa7a7;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 1.5rem;
+  border-radius: 5px;
+  background-color: #232a33;
+  gap: 1rem;
+  box-shadow: 1px -2px 10px #ffffff5e;
+  width: 50%;
+  @media only screen and (max-width: 800px) {
+    top: 23.7rem;
+    width: 60%;
+  }
+
+  button {
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #afa7a7;
+    width: auto;
+    border: 1px solid #524f4f;
+    border-radius: 3px;
+    background-color: transparent;
+    cursor: pointer;
+  }
+}
