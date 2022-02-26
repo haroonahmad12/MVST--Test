@@ -11,11 +11,13 @@ import SearchRepoBar from "../SearchRepoBar";
 const RepoList = ({ user }) => {
   const { userRepos, searchUserRepo, filteredRepos } =
     useSelector(userSelector);
+  const { name, avatar_url } = user;
   const [currentPage, setCurrentPage] = useState(1);
   const [paginatedRepoList, setPaginatedList] = useState(null);
+
   const dispatch = useDispatch();
 
-  const { name, avatar_url } = user;
+  // Function to create pagination to show 5 Repos per page max, Source: Stackoverflow
 
   const pagination = (pageNum, array) => {
     let page = pageNum,
@@ -35,6 +37,8 @@ const RepoList = ({ user }) => {
     });
   };
 
+  // Using UseEffects to trigger pagination() if user searches for a Repo
+
   useEffect(() => {
     pagination(currentPage, userRepos);
   }, [currentPage, userRepos]);
@@ -43,7 +47,7 @@ const RepoList = ({ user }) => {
     if (filteredRepos !== null && filteredRepos.length > 0 && searchUserRepo) {
       pagination(currentPage, filteredRepos);
     }
-  }, [currentPage, filteredRepos]);
+  }, [currentPage, filteredRepos, searchUserRepo]);
 
   const handleClick = () => {
     dispatch(setScreenType(TYPES.USER));
@@ -64,7 +68,6 @@ const RepoList = ({ user }) => {
       </header>
       <div>
         {searchUserRepo && <SearchRepoBar />}
-        {/* {paginatedRepoList?.data?.lenght === 0 && } */}
         {paginatedRepoList?.data?.map((repo) => (
           <RepoDetail repo={repo} />
         ))}

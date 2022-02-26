@@ -1,10 +1,5 @@
 import React from "react";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  useRoutes,
-} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import * as ROUTES from "./routes";
 import "./App.scss";
 import UserProfilePage from "./Pages/UserProfilePage";

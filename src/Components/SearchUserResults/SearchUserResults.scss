@@ -1,0 +1,22 @@
+.norepo__message {
+  margin: auto;
+}
+
+.search__results {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  color: rgb(175, 167, 167);
+  min-height: 30rem;
+  border-radius: 5px;
+  border: rgb(80, 76, 76) 1px solid;
+  box-shadow: 1px -2px 10px #ffffff5e;
+  background-color: #232a33;
+  margin-top: 1rem;
+  padding: 2rem;
+  @media only screen and (max-width: 800px) {
+    padding: 0;
+    width: 100%;
+  }
+}

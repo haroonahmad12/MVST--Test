@@ -1,5 +1,4 @@
 import React from "react";
-
 import forkIcon from "../../assets/fork.png";
 
 const RepoDetail = ({ repo }) => {

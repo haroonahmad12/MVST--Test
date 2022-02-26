@@ -3,10 +3,13 @@ import { useDispatch } from "react-redux";
 import { getUser } from "../../api/getUser";
 import { fetchSuccess, setScreenType } from "../../redux/user-reducer/actions";
 import { USER } from "../../redux/user-reducer/types";
+import "./SearchUserForm.scss";
 
 const SearchUserForm = () => {
   const [user, setUser] = useState("");
   const dispatch = useDispatch();
+
+  // Function to create an Object which will update the user in State
 
   const createPayload = (data) => {
     return {

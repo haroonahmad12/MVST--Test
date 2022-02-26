@@ -1,7 +1,12 @@
+// HTTP Requests using axios.
+
+// Exporting them in one file because If in near future we need to change the methods of making HTTP requests
+// we can simply change them here instead of changing everywhere.
+
 import axios from "axios";
 
 export const headers = {
-  Authorization: process.env.REACT_APP_GITHUB_AUTH_TOKEN,
+  Authorization: process.env.REACT_APP_GITHUB_AUTH_TOKEN, // Githup Personal Access Token which gives you 15000 petitions per hour on github API
 };
 
 axios.interceptors.response.use(null, (error) => {

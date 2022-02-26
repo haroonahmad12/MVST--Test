@@ -1,3 +1,5 @@
+// Redux Actions to modify state
+
 import * as UserTypes from "./types";
 
 export const fetchingUser = () => ({
