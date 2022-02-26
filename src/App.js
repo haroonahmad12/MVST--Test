@@ -1,10 +1,10 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import * as ROUTES from "./routes";
+// import * as ROUTES from "./routes";
 import "./App.scss";
 import UserProfilePage from "./Pages/UserProfilePage";
 import bgImage from "./assets/bg-img.jpeg";
-import FindRepoPage from "./Pages/FindRepoPage";
+// import FindRepoPage from "./Pages/FindRepoPage";
 
 function App() {
   return (
