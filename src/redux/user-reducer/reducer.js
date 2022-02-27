@@ -68,6 +68,10 @@ const UserReducer = (state = UserInitialState, action) => {
       };
     }
 
+    case UserTypes.RESET_STATE: {
+      return UserInitialState;
+    }
+
     default: {
       return state;
     }

@@ -5,6 +5,7 @@ export const SET_DATA_TYPE = "SET_DATA_TYPE";
 export const SET_USER_REPOS = "SET_USER_REPOS";
 export const SEARCH_USER_REPO = "SEARCH_USER_REPO";
 export const SET_FILTERED_REPOS = "SET_FILTERED_REPOS";
+export const RESET_STATE = "RESET_STATE";
 
 //Constants for datatype
 

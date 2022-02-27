@@ -37,8 +37,10 @@ const RepoList = () => {
           onClick={() => {
             setCurrentPage(currentPage - 1);
           }}
-          disabled={paginatedRepoList?.pre_page === null ? true : false}
           className="footer__buttons--button"
+          style={{
+            visibility: paginatedRepoList?.pre_page === null && "hidden",
+          }}
         >
           Previous
         </button>
@@ -50,7 +52,9 @@ const RepoList = () => {
           onClick={() => {
             setCurrentPage(currentPage + 1);
           }}
-          disabled={paginatedRepoList?.next_page === null ? true : false}
+          style={{
+            visibility: paginatedRepoList?.next_page === null && "hidden",
+          }}
         >
           Next
         </button>

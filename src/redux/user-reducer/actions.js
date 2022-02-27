@@ -34,3 +34,7 @@ export const setFilteredRepos = (repoList) => ({
   type: UserTypes.SET_FILTERED_REPOS,
   payload: repoList,
 });
+
+export const restState = () => ({
+  type: UserTypes.RESET_STATE,
+});

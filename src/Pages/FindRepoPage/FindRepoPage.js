@@ -13,7 +13,7 @@ const FindRepoPage = () => {
   const [repo, setRepo] = useState("");
   const dispatch = useDispatch();
 
-  // Function to create an Object which will update the user in State
+  // Function to create an Object which will update the repolist in State
 
   const handleSubmit = (e) => {
     e.preventDefault();
