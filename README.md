@@ -35,6 +35,10 @@ You may also see any lint errors in the console.
 ## Deployed Version
 
 The Project was depolyed using Netlify.
+On the main screens you have to select if you want to search for a Repository or a User. 
+
+You have a search bar in both options to make the query. 
+In User Profile you can search for the user Repositories. 
 
 Althought it requires some obvious fixes, it is still somewhat reponsive, it works well on mobile or tablets. The Final version was compiled without any errors or warnings.
 
@@ -48,6 +52,18 @@ Browser Version
 
 <img src="https://user-images.githubusercontent.com/85195876/155902011-a10925a0-afc0-46db-9fec-d55ca69a23a4.png" width="400" height="200" /> <img src="https://user-images.githubusercontent.com/85195876/155902036-0b865f82-a8d4-41e7-b34d-c0b8c9a30510.png" width="400" height="200" /> <img src="https://user-images.githubusercontent.com/85195876/155902043-0ab5649a-71ad-4a54-baed-5eef1a9c3789.png" width="400" height="200" /> <img src="https://user-images.githubusercontent.com/85195876/155902053-6f9cc933-f210-4b34-ba1b-89080b76489b.png" width="400" height="200" /> 
 
+### Improvements Needed
 
+- Proper Styling and Improving the mobile version
+- Light Mode
+- Separate Reducer for Global Repo Search
+- Loader is created but it is yet to be implemented.
+- Refactoring
+- Migrate to Typescript :)
+- Improve Pagination by using HTTP requests.
+- Since github api's response is limited, Make better use of the resources and manage the requests in a better way
 
+### For any suggestions or comments you can contact me via Email or Linked In
+
+<a href="https://www.linkedin.com/in/haroon-ahmad-426b3b213/"><img src="https://img.shields.io/badge/linkedin-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> <a href="mailto:haroon334@gmail.com"><img src="https://img.icons8.com/color/48/000000/gmail-new.png" width= "40px" height="30px"/></a>
 
