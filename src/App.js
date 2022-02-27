@@ -6,7 +6,6 @@ import UserProfilePage from "./Pages/UserProfilePage";
 import bgImage from "./assets/bg-img.jpeg";
 import FindRepoPage from "./Pages/FindRepoPage";
 import MainPage from "./Pages/MainPage";
-import NavBar from "./Components/NavBar/NavBar";
 
 function App() {
   return (
@@ -17,9 +16,6 @@ function App() {
         </div>
         <div className="background--bottom" />
       </div>
-
-      <NavBar />
-
       <Routes>
         <Route path={ROUTES.USER_SEARCH} element={<UserProfilePage />} />
       </Routes>

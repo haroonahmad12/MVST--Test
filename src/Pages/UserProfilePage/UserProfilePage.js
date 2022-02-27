@@ -5,12 +5,15 @@ import "./UserProfilePage.scss";
 import { useDispatch } from "react-redux";
 import { getUser } from "../../api/getUser";
 import {
+  fetching,
   fetchSuccess,
   setScreenType,
   setSearchRepo,
 } from "../../redux/user-reducer/actions";
 import { USER } from "../../redux/user-reducer/types";
 import { showToast } from "../../Components/ErrorToast/ErrorToast";
+import NavBar from "../../Components/NavBar";
+import ErrorToast from "../../Components/ErrorToast";
 
 // Search for users and their repositories
 
@@ -34,6 +37,7 @@ const UserProfilePage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    dispatch(fetching());
 
     getUser(user)
       .then((res) => createPayload(res.data))
@@ -52,6 +56,8 @@ const UserProfilePage = () => {
     <main className="main__container">
       <SearchForm handleSubmit={handleSubmit} set={setUser} type="User" />
       <SearchUserResults />
+      <ErrorToast />
+      <NavBar />
     </main>
   );
 };

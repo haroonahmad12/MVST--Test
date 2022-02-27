@@ -9,8 +9,8 @@
   padding: 16px;
   position: fixed;
   z-index: 1;
-  left: 50%;
-  bottom: 30px;
+  right: 1rem;
+  bottom: 73px;
   font-size: 17px;
   border: #504c4c 1px solid;
   box-shadow: 1px -2px 10px #ffffff5e;
@@ -28,7 +28,7 @@
     opacity: 0;
   }
   to {
-    bottom: 30px;
+    bottom: 73px;
     opacity: 1;
   }
 }
@@ -39,14 +39,14 @@
     opacity: 0;
   }
   to {
-    bottom: 30px;
+    bottom: 73px;
     opacity: 1;
   }
 }
 
 @-webkit-keyframes fadeout {
   from {
-    bottom: 30px;
+    bottom: 73px;
     opacity: 1;
   }
   to {
@@ -57,7 +57,7 @@
 
 @keyframes fadeout {
   from {
-    bottom: 30px;
+    bottom: 73px;
     opacity: 1;
   }
   to {

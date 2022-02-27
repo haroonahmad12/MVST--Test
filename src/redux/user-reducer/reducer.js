@@ -25,6 +25,7 @@ const UserReducer = (state = UserInitialState, action) => {
       return {
         ...state,
         fetchError: true,
+        isFetching: false,
       };
     }
     case UserTypes.FETCH_SUCCESS: {
@@ -51,6 +52,7 @@ const UserReducer = (state = UserInitialState, action) => {
       return {
         ...state,
         userRepos: action.payload,
+        isFetching: false,
       };
     }
 

@@ -2,7 +2,7 @@
 
 import * as UserTypes from "./types";
 
-export const fetchingUser = () => ({
+export const fetching = () => ({
   type: UserTypes.FETCH_REQUEST,
 });
 
