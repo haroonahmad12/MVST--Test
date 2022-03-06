@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setFilteredRepos } from "../../redux/user-reducer/actions";
 import { userSelector } from "../../redux/user-reducer/selectors";
-import ErrorToast from "../ErrorToast";
 import { showToast } from "../ErrorToast/ErrorToast";
 
 // Search User Repos
@@ -48,7 +47,6 @@ const SearchRepoBar = ({ setCurrentPage }) => {
           Search
         </button>
       </form>
-      <ErrorToast />
     </>
   );
 };

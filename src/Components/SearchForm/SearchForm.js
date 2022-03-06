@@ -1,6 +1,4 @@
 import React from "react";
-
-import ErrorToast from "../ErrorToast";
 import "./SearchForm.scss";
 
 const SearchForm = ({ handleSubmit, set, type }) => {
@@ -24,7 +22,6 @@ const SearchForm = ({ handleSubmit, set, type }) => {
           </div>
         </div>
       </form>
-      <ErrorToast />
     </>
   );
 };
